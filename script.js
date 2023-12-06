@@ -63,3 +63,44 @@ opButMultiply.addEventListener("click", function () {
 opButDivide.addEventListener("click", function () {
     operationArray.push("/")
 })
+
+opButEquals.addEventListener("click", function () {
+    //This one will stop the whole array pushing to give us the solution
+
+    function splitArray(operationArray) {
+        // Find the index of the operator
+        const operatorIndex = operationArray.findIndex(element => ['+', '-', '*', '/'].includes(element));
+
+        if (operatorIndex !== -1) {
+            // Split the array into three parts
+            const numbersBefore = operationArray.slice(0, operatorIndex);
+            const operator = operationArray[operatorIndex];
+            const numbersAfter = operationArray.slice(operatorIndex + 1);
+
+            /*
+            const numBeforeJoined = numbersBefore.join("")
+            const numAfterJoined = numbersAfter.join("")
+
+            numBefOp = numBeforeJoined
+            numAftOp = numAfterJoined
+            operatorSym = operator
+*/
+
+            return [numbersBefore, operator, numbersAfter];
+        }
+        else {
+            // Handle the case where no operator is found
+            console.error("No operator found in the array.");
+            return null;
+        }
+    }
+    const inputArray = operationArray
+    const result = splitArray(inputArray);
+
+    if (result) {
+        numBefOp = result[0].join("");
+        operatorSym = result[1];
+        numAftOp = result[2].join("");
+    }
+    operate();
+})
