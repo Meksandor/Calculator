@@ -1,3 +1,28 @@
+function operate() {
+    switch (operatorSym) {
+        case "+":
+            console.log(parseInt(numBefOp.replace('Rp', '').trim()) + parseInt(numAftOp.replace('Rp', '').trim()))
+            break;
+        case "-":
+            console.log(numBefOp - numAftOp)
+            break;
+        case "*":
+            console.log(numBefOp * numAftOp)
+            break
+        case "/":
+            console.log(numBefOp / numAftOp)
+            break
+
+        default:
+            return
+    }
+}
+
+var operationArray = []
+var numBefOp = 0
+var numAftOp = 0
+var operatorSym = 0
+
 const numberButtons = document.querySelectorAll('.numberButtons')
 const operatorButtons = document.querySelectorAll('.operatorButtons')
 
