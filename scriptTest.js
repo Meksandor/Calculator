@@ -2,19 +2,15 @@ function operate() {
     switch (operatorSym) {
         case "+":
             console.log(parseInt(numBefOp.replace('Rp', '').trim()) + parseInt(numAftOp.replace('Rp', '').trim()))
-            calculatorScreen.textContent = parseInt(numBefOp.replace('Rp', '').trim()) + parseInt(numAftOp.replace('Rp', '').trim())
             break;
         case "-":
             console.log(numBefOp - numAftOp)
-            calculatorScreen.textContent = numBefOp - numAftOp
             break;
         case "*":
             console.log(numBefOp * numAftOp)
-            calculatorScreen.textContent = numBefOp * numAftOp
             break
         case "/":
             console.log(numBefOp / numAftOp)
-            calculatorScreen.textContent = numBefOp / numAftOp
             break
 
         default:
@@ -27,12 +23,16 @@ var numBefOp = 0
 var numAftOp = 0
 var operatorSym = 0
 
+/*
 const numberButtons = document.querySelectorAll('.numberButtons')
 const operatorButtons = document.querySelectorAll('.operatorButtons')
+*/
 
 const calculatorScreen = document.querySelector('#calculatorScreen')
+calculatorScreen = ""
 
 const clickedButtons = [];
+
 // Function to handle button clicks
 function handleButtonClick(button) {
     clickedButtons.push(button);
@@ -40,7 +40,6 @@ function handleButtonClick(button) {
 }
 // Function to update the content of the <div>
 function updateOutput() {
-    const calculatorScreen = document.querySelector('#calculatorScreen')
     calculatorScreen.textContent = clickedButtons.join('');
 }
 
@@ -57,43 +56,43 @@ const numBut9 = document.querySelector('#nine')
 
 numBut0.addEventListener("click", function () {
     operationArray.push("0")
-    handleButtonClick("0")
+    handleButtonClick('0')
 })
 numBut1.addEventListener("click", function () {
     operationArray.push("1")
-    handleButtonClick("1")
+    handleButtonClick('1')
 })
 numBut2.addEventListener("click", function () {
     operationArray.push("2")
-    handleButtonClick("2")
+    handleButtonClick('2')
 })
 numBut3.addEventListener("click", function () {
     operationArray.push("3")
-    handleButtonClick("3")
+    handleButtonClick('3')
 })
 numBut4.addEventListener("click", function () {
     operationArray.push("4")
-    handleButtonClick("4")
+    handleButtonClick('4')
 })
 numBut5.addEventListener("click", function () {
     operationArray.push("5")
-    handleButtonClick("5")
+    handleButtonClick('5')
 })
 numBut6.addEventListener("click", function () {
     operationArray.push("6")
-    handleButtonClick("6")
+    handleButtonClick('6')
 })
 numBut7.addEventListener("click", function () {
     operationArray.push("7")
-    handleButtonClick("7")
+    handleButtonClick('7')
 })
 numBut8.addEventListener("click", function () {
     operationArray.push("8")
-    handleButtonClick("8")
+    handleButtonClick('8')
 })
 numBut9.addEventListener("click", function () {
     operationArray.push("9")
-    handleButtonClick("9")
+    handleButtonClick('9')
 })
 
 const opButAdd = document.querySelector('#add')
@@ -104,19 +103,19 @@ const opButEquals = document.querySelector('#equals')
 
 opButAdd.addEventListener("click", function () {
     operationArray.push("+")
-    handleButtonClick("+")
+    handleButtonClick('+')
 })
 opButSubtrack.addEventListener("click", function () {
     operationArray.push("-")
-    handleButtonClick("-")
+    handleButtonClick('-')
 })
 opButMultiply.addEventListener("click", function () {
     operationArray.push("*")
-    handleButtonClick("*")
+    handleButtonClick('*')
 })
 opButDivide.addEventListener("click", function () {
     operationArray.push("/")
-    handleButtonClick("/")
+    handleButtonClick('/')
 })
 
 opButEquals.addEventListener("click", function () {
@@ -135,7 +134,7 @@ opButEquals.addEventListener("click", function () {
             /*
             const numBeforeJoined = numbersBefore.join("")
             const numAfterJoined = numbersAfter.join("")
-
+ 
             numBefOp = numBeforeJoined
             numAftOp = numAfterJoined
             operatorSym = operator
@@ -159,3 +158,4 @@ opButEquals.addEventListener("click", function () {
     }
     operate();
 })
+
