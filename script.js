@@ -5,28 +5,36 @@ function operate() {
             console.log(resultSum)
             calculatorScreen.textContent = resultSum
             operationArray = []
-            operationArray.push(resultSum)
+            operationArray.push(resultSum.toString())
+            clickedButtons = []
+            clickedButtons.push(resultSum)
             break;
         case "-":
             const resultSubtrack = numBefOp - numAftOp
             console.log(resultSubtrack)
             calculatorScreen.textContent = resultSubtrack
             operationArray = []
-            operationArray.push(resultSubtrack)
+            operationArray.push(resultSubtrack.toString())
+            clickedButtons = []
+            clickedButtons.push(resultSubtrack)
             break;
         case "*":
             const resultMultiply = numBefOp * numAftOp
             console.log(resultMultiply)
             calculatorScreen.textContent = resultMultiply
             operationArray = []
-            operationArray.push(resultMultiply)
+            operationArray.push(resultMultiply.toString())
+            clickedButtons = []
+            clickedButtons.push(resultMultiply)
             break
         case "/":
             const resultDivide = numBefOp / numAftOp
             console.log(resultDivide)
             calculatorScreen.textContent = resultDivide
             operationArray = []
-            operationArray.push(resultDivide)
+            operationArray.push(resultDivide.toString())
+            clickedButtons = []
+            clickedButtons.push(resultDivide)
             break
 
         default:
@@ -39,26 +47,25 @@ var numBefOp = 0
 var numAftOp = 0
 var operatorSym = 0
 
-const numberButtons = document.querySelectorAll('.numberButtons')
-const operatorButtons = document.querySelectorAll('.operatorButtons')
-
 const calculatorScreen = document.querySelector('#calculatorScreen')
 
-const clickedButtons = [];
-// Function to handle button clicks
-function handleButtonClick(button) {
+var clickedButtons = [];
+
+function handleButtonClick(button) { // Function to handle button clicks
     clickedButtons.push(button);
     updateOutput();
 }
-// Function to update the content of the <div>
-function updateOutput() {
+function updateOutput() {// Function to update the content of the <div>
     const calculatorScreen = document.querySelector('#calculatorScreen')
     calculatorScreen.textContent = clickedButtons.join('');
 }
 
+
 const clearButton = document.querySelector('#clearButton')
 clearButton.addEventListener("click", function () {
     operationArray = []
+    clickedButtons = []
+    calculatorScreen.textContent = ""
 })
 
 
