@@ -45,3 +45,8 @@ body {
     height: 50px;
     width: 50px;
 }
+
+#clearButton {
+    height: 70px;
+    width: 50px;
+}

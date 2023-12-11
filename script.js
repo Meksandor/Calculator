@@ -1,20 +1,32 @@
 function operate() {
     switch (operatorSym) {
         case "+":
-            console.log(parseInt(numBefOp.replace('Rp', '').trim()) + parseInt(numAftOp.replace('Rp', '').trim()))
-            calculatorScreen.textContent = parseInt(numBefOp.replace('Rp', '').trim()) + parseInt(numAftOp.replace('Rp', '').trim())
+            const resultSum = parseInt(numBefOp.replace('Rp', '').trim()) + parseInt(numAftOp.replace('Rp', '').trim())
+            console.log(resultSum)
+            calculatorScreen.textContent = resultSum
+            operationArray = []
+            operationArray.push(resultSum)
             break;
         case "-":
-            console.log(numBefOp - numAftOp)
-            calculatorScreen.textContent = numBefOp - numAftOp
+            const resultSubtrack = numBefOp - numAftOp
+            console.log(resultSubtrack)
+            calculatorScreen.textContent = resultSubtrack
+            operationArray = []
+            operationArray.push(resultSubtrack)
             break;
         case "*":
-            console.log(numBefOp * numAftOp)
-            calculatorScreen.textContent = numBefOp * numAftOp
+            const resultMultiply = numBefOp * numAftOp
+            console.log(resultMultiply)
+            calculatorScreen.textContent = resultMultiply
+            operationArray = []
+            operationArray.push(resultMultiply)
             break
         case "/":
-            console.log(numBefOp / numAftOp)
-            calculatorScreen.textContent = numBefOp / numAftOp
+            const resultDivide = numBefOp / numAftOp
+            console.log(resultDivide)
+            calculatorScreen.textContent = resultDivide
+            operationArray = []
+            operationArray.push(resultDivide)
             break
 
         default:
@@ -43,6 +55,12 @@ function updateOutput() {
     const calculatorScreen = document.querySelector('#calculatorScreen')
     calculatorScreen.textContent = clickedButtons.join('');
 }
+
+const clearButton = document.querySelector('#clearButton')
+clearButton.addEventListener("click", function () {
+    operationArray = []
+})
+
 
 const numBut0 = document.querySelector('#zero')
 const numBut1 = document.querySelector('#one')
