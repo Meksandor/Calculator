@@ -50,7 +50,6 @@ var operatorSym = 0
 const calculatorScreen = document.querySelector('#calculatorScreen')
 
 var clickedButtons = [];
-
 function handleButtonClick(button) { // Function to handle button clicks
     clickedButtons.push(button);
     updateOutput();
@@ -58,6 +57,7 @@ function handleButtonClick(button) { // Function to handle button clicks
 function updateOutput() {// Function to update the content of the <div>
     const calculatorScreen = document.querySelector('#calculatorScreen')
     calculatorScreen.textContent = clickedButtons.join('');
+
 }
 
 
@@ -66,6 +66,13 @@ clearButton.addEventListener("click", function () {
     operationArray = []
     clickedButtons = []
     calculatorScreen.textContent = ""
+})
+
+const backspaceButton = document.querySelector('#backspaceButton')
+backspaceButton.addEventListener("click", function () {
+    operationArray.pop()
+    clickedButtons.pop()
+    calculatorScreen.textContent = operationArray.join('')
 })
 
 
