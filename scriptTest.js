@@ -1,46 +1,80 @@
-function operate() {
-    if (operatorSym == "+") {
-        const resultSum = parseInt(numBefOp.replace('Rp', '').trim()) + parseInt(numAftOp.replace('Rp', '').trim())
-        console.log(resultSum)
-        calculatorScreen.textContent = resultSum
-        operationArray = []
-        operationArray.push(resultSum.toString())
+if (operationArray.includes("+") == true || operationArray.includes("-") == true || operationArray.includes("*") == true || operationArray.includes("/") == true) {
+    if (operatorSym = "+") {
+        const sumOprtIndex = operationArray.indexOf("+")
+        const indexOfDecimal = operationArray.indexOf(".");  // Check if "decimal" exists between start till the decimal indices and sum till the end indices.
 
-        clickedButtons = []
-        clickedButtons.push(resultSum.toString())
-        return
+        const isDecimalBetweenStartToSum = indexOfDecimal >= 0 || indexOfDecimal < sumOprtIndex;
+        const isDecimalBetweenSumToStart = indexOfDecimal > sumOprtIndex
+        if (isDecimalBetweenStartToSum == true || isDecimalBetweenSumToStart == true) {
+            console.log("We already have decimal");
+            return
+        }
+        else {
+            console.log("We don't have dacimal so let's add");
+            operationArray.push(".")
+            clickedButtons.push(".")
+        }
     }
-    else if (operatorSym == "-") {
-        const resultSubtrack = numBefOp - numAftOp
-        console.log(resultSubtrack)
-        calculatorScreen.textContent = resultSubtrack
-        operationArray = []
-        operationArray.push(resultSubtrack.toString())
+    else if (operatorSym = "-") {
+        const subtrackOprtIndex = operationArray.indexOf("-")
+        const indexOfDecimal = operationArray.indexOf(".");
 
-        clickedButtons = []
-        clickedButtons.push(resultSubtrack.toString())
-        return
+        const isDecimalBetweenStartToSubtrack = indexOfDecimal >= 0 && indexOfDecimal < subtrackOprtIndex;
+        const isDecimalBetweenSubtrackToStart = indexOfDecimal > subtrackOprtIndex
+        if (isDecimalBetweenStartToSubtrack == true || isDecimalBetweenSubtrackToStart == true) {
+            console.log("We already have decimal");
+            return
+        }
+        else {
+            console.log("We don't have dacimal so let's add");
+            operationArray.push(".")
+            clickedButtons.push(".")
+        }
     }
-    else if (operatorSym == "*") {
-        const resultMultiply = numBefOp * numAftOp
-        console.log(resultMultiply)
-        calculatorScreen.textContent = resultMultiply
-        operationArray = []
-        operationArray.push(resultMultiply.toString())
+    else if (operatorSym = "*") {
+        const multiplyOprtIndex = operationArray.indexOf("*")
+        const indexOfDecimal = operationArray.indexOf(".");
 
-        clickedButtons = []
-        clickedButtons.push(resultMultiply.toString())
-        return
+        const isDecimalBetweenStartToMultiply = indexOfDecimal >= 0 && indexOfDecimal < multiplyOprtIndex;
+        const isDecimalBetweenMultiplyToStart = indexOfDecimal > multiplyOprtIndex
+        if (isDecimalBetweenStartToMultiply == true || isDecimalBetweenMultiplyToStart == true) {
+            console.log("We already have decimal");
+            return
+        }
+        else {
+            console.log("We don't have dacimal so let's add");
+            operationArray.push(".")
+            clickedButtons.push(".")
+        }
     }
-    else if (operatorSym == "/") {
-        const resultDivide = numBefOp / numAftOp
-        console.log(resultDivide)
-        calculatorScreen.textContent = resultDivide
-        operationArray = []
-        operationArray.push(resultDivide.toString())
+    else if (operatorSym = "/") {
+        const divideOprtIndex = operationArray.indexOf("/")
+        const indexOfDecimal = operationArray.indexOf(".");
 
-        clickedButtons = []
-        clickedButtons.push(resultDivide.toString())
-        return
+        const isDecimalBetweenStartToDivide = indexOfDecimal >= 0 && indexOfDecimal < divideOprtIndex;
+        const isDecimalBetweenDivideToStart = indexOfDecimal > divideOprtIndex
+        if (isDecimalBetweenStartToDivide == true || isDecimalBetweenDivideToStart == true) {
+            console.log("We already have decimal");
+            return
+        }
+        else {
+            console.log("We don't have dacimal so let's add");
+            operationArray.push(".")
+            clickedButtons.push(".")
+        }
     }
 }
+
+else if (operationArray.includes("+") == false || operationArray.includes("-") == false || operationArray.includes("*") == false || operationArray.includes("/") == false) {
+    if (operationArray.includes(".") == true) {
+        return
+    }
+    else if (operationArray.includes(".") == false) {
+        operationArray.push(".")
+        clickedButtons.push(".")
+    }
+}
+const sumOprtIndex = operationArray.indexOf("+")
+const subtrackOprtIndex = operationArray.indexOf("-")
+const multiplyOprtIndex = operationArray.indexOf("*")
+const divideOprtIndex = operationArray.indexOf("/")

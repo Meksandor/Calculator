@@ -43,9 +43,9 @@ function operate() {
 }
 
 var operationArray = []
-var numBefOp = 0
-var numAftOp = 0
-var operatorSym = 0
+var numBefOp = "0"
+var numAftOp = "0"
+var operatorSym = "0"
 
 const calculatorScreen = document.querySelector('#calculatorScreen')
 
@@ -74,6 +74,130 @@ backspaceButton.addEventListener("click", function () {
     clickedButtons.pop()
     calculatorScreen.textContent = operationArray.join('')
 })
+
+const decimalButton = document.querySelector('#decimal')
+decimalButton.addEventListener("click", function () {
+    /*
+     if (operationArray.includes("+") == true || operationArray.includes("-") == true || operationArray.includes("*") == true || operationArray.includes("/") == true) {
+         if (operatorSym = "+") {
+             const sumOprtIndex = operationArray.indexOf("+")
+             const indexOfDecimal = operationArray.indexOf(".");  // Check if "decimal" exists between start till the decimal indices and sum till the end indices.
+ 
+             const isDecimalBetweenStartToSum = indexOfDecimal >= 0 || indexOfDecimal < sumOprtIndex;
+             const isDecimalBetweenSumToStart = indexOfDecimal > sumOprtIndex
+             if (isDecimalBetweenStartToSum == true || isDecimalBetweenSumToStart == true) {
+                 console.log("We already have decimal");
+                 return
+             }
+             else {
+                 console.log("We don't have dacimal so let's add");
+                 operationArray.push(".")
+                 clickedButtons.push(".")
+             }
+         }
+         else if (operatorSym = "-") {
+             const subtrackOprtIndex = operationArray.indexOf("-")
+             const indexOfDecimal = operationArray.indexOf(".");
+ 
+             const isDecimalBetweenStartToSubtrack = indexOfDecimal >= 0 && indexOfDecimal < subtrackOprtIndex;
+             const isDecimalBetweenSubtrackToStart = indexOfDecimal > subtrackOprtIndex
+             if (isDecimalBetweenStartToSubtrack == true || isDecimalBetweenSubtrackToStart == true) {
+                 console.log("We already have decimal");
+                 return
+             }
+             else {
+                 console.log("We don't have dacimal so let's add");
+                 operationArray.push(".")
+                 clickedButtons.push(".")
+             }
+         }
+         else if (operatorSym = "*") {
+             const multiplyOprtIndex = operationArray.indexOf("*")
+             const indexOfDecimal = operationArray.indexOf(".");
+ 
+             const isDecimalBetweenStartToMultiply = indexOfDecimal >= 0 && indexOfDecimal < multiplyOprtIndex;
+             const isDecimalBetweenMultiplyToStart = indexOfDecimal > multiplyOprtIndex
+             if (isDecimalBetweenStartToMultiply == true || isDecimalBetweenMultiplyToStart == true) {
+                 console.log("We already have decimal");
+                 return
+             }
+             else {
+                 console.log("We don't have dacimal so let's add");
+                 operationArray.push(".")
+                 clickedButtons.push(".")
+             }
+         }
+         else if (operatorSym = "/") {
+             const divideOprtIndex = operationArray.indexOf("/")
+             const indexOfDecimal = operationArray.indexOf(".");
+ 
+             const isDecimalBetweenStartToDivide = indexOfDecimal >= 0 && indexOfDecimal < divideOprtIndex;
+             const isDecimalBetweenDivideToStart = indexOfDecimal > divideOprtIndex
+             if (isDecimalBetweenStartToDivide == true || isDecimalBetweenDivideToStart == true) {
+                 console.log("We already have decimal");
+                 return
+             }
+             else {
+                 console.log("We don't have dacimal so let's add");
+                 operationArray.push(".")
+                 clickedButtons.push(".")
+             }
+         }
+     }
+ 
+     else if (operationArray.includes("+") == false || operationArray.includes("-") == false || operationArray.includes("*") == false || operationArray.includes("/") == false) {
+         if (operationArray.includes(".") == true) {
+             return
+         }
+         else if (operationArray.includes(".") == false) {
+             operationArray.push(".")
+             clickedButtons.push(".")
+         }
+     }
+     */
+
+    const sumOprtIndex = operationArray.indexOf("+")
+    const subtrackOprtIndex = operationArray.indexOf("-")
+    const multiplyOprtIndex = operationArray.indexOf("*")
+    const divideOprtIndex = operationArray.indexOf("/")
+
+    const indexOfDecimal = operationArray.indexOf(".");
+
+    var splicedAfterSumOperator = operationArray.slice();
+    var splicedAfterSubtrackOperator = operationArray.slice();
+    var splicedAfterMultiplyOperator = operationArray.slice();
+    var splicedAfterDivideOperator = operationArray.slice();
+
+    splicedAfterSumOperator.splice(0, sumOprtIndex + 1)
+    splicedAfterSubtrackOperator.splice(0, subtrackOprtIndex + 1)
+    splicedAfterMultiplyOperator.splice(0, multiplyOprtIndex + 1)
+    splicedAfterDivideOperator.splice(0, divideOprtIndex + 1)
+
+    if (operationArray.includes("+") == true || operationArray.includes("-") == true || operationArray.includes("*") == true || operationArray.includes("/") == true) {
+
+        if (splicedAfterSumOperator.includes(".") == true || splicedAfterSubtrackOperator.includes(".") == true || splicedAfterMultiplyOperator.includes(".") == true || splicedAfterDivideOperator.includes(".") == true) {
+            return
+        }
+        else if (splicedAfterSumOperator.includes(".") == false || splicedAfterSubtrackOperator.includes(".") == false || splicedAfterMultiplyOperator.includes(".") == false || splicedAfterDivideOperator.includes(".") == false) {
+            operationArray.push(".")
+            clickedButtons.push(".")
+        }
+    }
+
+    else if (operationArray.includes("+") == false || operationArray.includes("-") == false || operationArray.includes("*") == false || operationArray.includes("/") == false) {
+        var isThereDecimalBeforeAnyOpt = operationArray.includes(".")
+
+        if (isThereDecimalBeforeAnyOpt == true) {
+            return
+        }
+        else if (isThereDecimalBeforeAnyOpt == false) {
+            operationArray.push(".")
+            clickedButtons.push(".")
+        }
+    }
+})
+
+
 
 
 const numBut0 = document.querySelector('#zero')
@@ -191,3 +315,23 @@ opButEquals.addEventListener("click", function () {
     }
     operate();
 })
+
+/*
+const
+const
+const
+const
+const
+const
+const
+const
+const
+const
+const
+const
+const
+const
+const
+const
+const
+*/
