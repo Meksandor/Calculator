@@ -199,7 +199,6 @@ decimalButton.addEventListener("click", function () {
 
 
 
-
 const numBut0 = document.querySelector('#zero')
 const numBut1 = document.querySelector('#one')
 const numBut2 = document.querySelector('#two')
