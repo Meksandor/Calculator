@@ -315,22 +315,112 @@ opButEquals.addEventListener("click", function () {
     operate();
 })
 
-/*
-const
-const
-const
-const
-const
-const
-const
-const
-const
-const
-const
-const
-const
-const
-const
-const
-const
-*/
+//Keyboard Support
+document.addEventListener('keydown', function (event) {
+    switch (event.key) {
+        case "0":
+            operationArray.push("0")
+            handleButtonClick("0")
+            break
+        case "1":
+            operationArray.push("1")
+            handleButtonClick("1")
+            break
+        case "2":
+            operationArray.push("2")
+            handleButtonClick("2")
+            break
+        case "3":
+            operationArray.push("3")
+            handleButtonClick("3")
+            break
+        case "4":
+            operationArray.push("4")
+            handleButtonClick("4")
+            break
+        case "5":
+            operationArray.push("5")
+            handleButtonClick("5")
+            break
+        case "6":
+            operationArray.push("6")
+            handleButtonClick("6")
+            break
+        case "7":
+            operationArray.push("7")
+            handleButtonClick("7")
+            break
+        case "8":
+            operationArray.push("8")
+            handleButtonClick("8")
+            break
+        case "9":
+            operationArray.push("9")
+            handleButtonClick("9")
+            break
+
+        case "+":
+            operationArray.push("+")
+            handleButtonClick("+")
+            break
+        case "-":
+            operationArray.push("-")
+            handleButtonClick("-")
+            break
+        case "*":
+            operationArray.push("*")
+            handleButtonClick("*")
+            break
+        case "/":
+            operationArray.push("/")
+            handleButtonClick("/")
+            break
+
+        case 'Backspace':
+            operationArray.pop()
+            clickedButtons.pop()
+            calculatorScreen.textContent = operationArray.join('')
+            break
+
+        case 'Enter':
+            //This one will stop the whole array pushing to give us the solution
+
+            function splitArray(operationArray) {
+                // Find the index of the operator
+                const operatorIndex = operationArray.findIndex(element => ['+', '-', '*', '/'].includes(element));
+
+                if (operatorIndex !== -1) {
+                    // Split the array into three parts
+                    const numbersBefore = operationArray.slice(0, operatorIndex);
+                    const operator = operationArray[operatorIndex];
+                    const numbersAfter = operationArray.slice(operatorIndex + 1);
+
+                    /*
+                    const numBeforeJoined = numbersBefore.join("")
+                    const numAfterJoined = numbersAfter.join("")
+        
+                    numBefOp = numBeforeJoined
+                    numAftOp = numAfterJoined
+                    operatorSym = operator
+        */
+
+                    return [numbersBefore, operator, numbersAfter];
+                }
+                else {
+                    // Handle the case where no operator is found
+                    console.error("No operator found in the array.");
+                    return null;
+                }
+            }
+            const inputArray = operationArray
+            const result = splitArray(inputArray);
+
+            if (result) {
+                numBefOp = result[0].join("");
+                operatorSym = result[1];
+                numAftOp = result[2].join("");
+            }
+            operate();
+            break
+    }
+})
