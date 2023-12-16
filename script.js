@@ -422,5 +422,11 @@ document.addEventListener('keydown', function (event) {
             }
             operate();
             break
+
+        /*
+    case '.':
+        //Execution
+        break;
+        */
     }
 })

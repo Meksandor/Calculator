@@ -1,7 +1,14 @@
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: auto;
 }
 
 #calculatorBody {
