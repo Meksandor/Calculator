@@ -13,32 +13,39 @@
 
     <main>
         <div id="calculatorBody">
-            <div id="calculatorScreen">Enter The Calculation</div>
+            <div id="calculatorScreenDiv">
+                <div id="calculatorScreen">Enter The Calculation</div>
+            </div>
 
             <div id="calculatorButtons">
-                <div id="numbers">
-                    <button class="numberButtons" id="nine">9</button>
-                    <button class="numberButtons" id="eight">8</button>
-                    <button class="numberButtons" id="seven">7</button>
-                    <button class="numberButtons" id="six">6</button>
-                    <button class="numberButtons" id="five">5</button>
-                    <button class="numberButtons" id="four">4</button>
-                    <button class="numberButtons" id="three">3</button>
-                    <button class="numberButtons" id="two">2</button>
-                    <button class="numberButtons" id="one">1</button>
-                    <button class="numberButtons" id="decimal">.</button>
-                    <button class="numberButtons" id="zero">0</button>
+
+                <div id="clrAndBackSpcButtons">
+                    <button class="clcAndBackButtons" id="clearButton">Clear</button>
+                    <button class="clcAndBackButtons" id="backspaceButton">Backspace</button>
                 </div>
 
-                <button class="clearButton" id="clearButton">AC</button>
-                <button class="backspaceButton" id="backspaceButton">Backspace</button>
+                <div id="numAndOprtrButtons">
+                    <div id="numbers">
+                        <button class="numberButtons calcButton" id="nine">9</button>
+                        <button class="numberButtons calcButton" id="eight">8</button>
+                        <button class="numberButtons calcButton" id="seven">7</button>
+                        <button class="numberButtons calcButton" id="six">6</button>
+                        <button class="numberButtons calcButton" id="five">5</button>
+                        <button class="numberButtons calcButton" id="four">4</button>
+                        <button class="numberButtons calcButton" id="three">3</button>
+                        <button class="numberButtons calcButton" id="two">2</button>
+                        <button class="numberButtons calcButton" id="one">1</button>
+                        <button class="numberButtons calcButton" id="decimal">.</button>
+                        <button class="numberButtons calcButton" id="zero">0</button>
+                        <button class="operatorButtons calcButton" id="equals">=</button>
+                    </div>
 
-                <div id="operators">
-                    <button class="operatorButtons" id="add">+</button>
-                    <button class="operatorButtons" id="subtrack">-</button>
-                    <button class="operatorButtons" id="multiply">*</button>
-                    <button class="operatorButtons" id="divide">/</button>
-                    <button class="operatorButtons" id="equals">=</button>
+                    <div id="operators">
+                        <button class="operatorButtons calcButton" id="add">+</button>
+                        <button class="operatorButtons calcButton" id="subtrack">-</button>
+                        <button class="operatorButtons calcButton" id="multiply">*</button>
+                        <button class="operatorButtons calcButton" id="divide">/</button>
+                    </div>
                 </div>
             </div>
         </div>

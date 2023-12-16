@@ -21,10 +21,9 @@ footer {
     width: 380px;
     margin: 10px;
     border-radius: 15px;
-    border: 2px inset black;
 }
 
-#calculatorScreenDiv {
+#calculatorScreen {
     background-color: #c2c4c3;
     height: 78px;
     width: 340px;
@@ -35,12 +34,10 @@ footer {
     align-items: end;
     justify-content: flex-end;
     border-radius: 5px;
-    border: 2px inset black;
 }
 
-#calculatorScreen {
+#calculatorScreenContent {
     margin: 10px 8px 10px 8px;
-    font-size: 30px;
 }
 
 #calculatorButtons {
@@ -64,7 +61,6 @@ footer {
     height: 60px;
     width: 70px;
     font-size: 20px;
-    border-radius: 6px;
 }
 
 #numAndOprtrButtons>#numbers {
@@ -90,15 +86,11 @@ footer {
     height: 60px;
     width: 150px;
     font-size: 20px;
-    border-radius: 6px;
 }
 
-#clearButton {
-    background-color: #FFCF96;
-}
-
-#backspaceButton {
-    background-color: #FFEBD8;
+.clcAndBackButtons {
+    height: 60px;
+    width: 60px;
 }
 
 #numbers {

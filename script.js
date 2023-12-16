@@ -199,6 +199,7 @@ decimalButton.addEventListener("click", function () {
 
 
 
+
 const numBut0 = document.querySelector('#zero')
 const numBut1 = document.querySelector('#one')
 const numBut2 = document.querySelector('#two')
@@ -249,7 +250,7 @@ numBut8.addEventListener("click", function () {
 numBut9.addEventListener("click", function () {
     operationArray.push("9")
     handleButtonClick("9")
-})
+});
 
 const opButAdd = document.querySelector('#add')
 const opButSubtrack = document.querySelector('#subtrack')
@@ -379,7 +380,7 @@ document.addEventListener('keydown', function (event) {
         case 'Backspace':
             operationArray.pop()
             clickedButtons.pop()
-            calculatorScreen.textContent = operationArray.join('')
+            calculatorScreenContent.textContent = operationArray.join('')
             break
 
         case 'Enter':
